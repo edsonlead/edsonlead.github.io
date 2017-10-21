@@ -1,0 +1,9 @@
+docs_list_title: Pages Site
+docs:
+
+- title: Sobre
+  url: /sobre
+
+- title: Portfolio
+  url: /portfolio
+
