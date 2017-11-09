@@ -7,6 +7,9 @@ categories: [python]
 tags: [jupyter notebook, beautifulsoup, python]
 
 ---
+
+\[UPDATE\]: 09/11/2017
+
 Ontem, 12 de outubro, aproveitei para publicar um pequeno projeto que desenvolvi em alguns dias. Postei nos grupos do Facebook Python Brasil e A.P.D.A., al&eacute;m da minha timeline. Obtive um feedback bem legal e maior do que eu esperava. E neste post iremos tratar sobre esse projeto.
 
 &Eacute; de conhecimento comum que d&aacute; pra fazer v&aacute;rias coisas com uma linguagem de programa&ccedil;&atilde;o. Aprender tudo sobre uma &eacute; praticamente imposs&iacute;vel, para meros mortais. Por isso, &eacute; importante encontrar um foco. Em tese, deve ser algo desafiador e que desperte o interesse de quem est&aacute; escrevendo os c&oacute;digos. Eu fui atr&aacute;s do meu foco, se encontrei eu n&atilde;o sei. Mas estou gostando de raspagem de dados.
@@ -53,7 +56,7 @@ Dessa forma, temos para cada &oacute;rg&atilde;o superior uma lista de valores e
 
 ## Resultados
 
-&Eacute; poss&iacute;vel gerar os gr&aacute;ficos por &oacute;rg&atilde;o superior, isso totaliza 7 gr&aacute;ficos. Somado a isso, o c&oacute;digo permite plotar gr&aacute;ficos com mais de um &oacute;rg&atilde;o superior, o que &eacute; ideal quando se quer comparar gr&aacute;ficos. Abaixo s&atilde;o apresentados 4 gr&aacute;ficos, onde: a) compara os gastos entre a Presid&ecirc;ncia da Rep&uacute;blica, e Minist&eacute;rios da Ci&ecirc;ncia e Tecnologia, Meio Ambiente e Esporte; b) compara os gastos entre os Minist&eacute;rios de Educa&ccedil;&atilde;o e Sa&uacute;de; c) compara os gastos entre os Minist&eacute;rios de Educa&ccedil;&atilde;o, Previd&ecirc;ncia Social e Sa&uacute;de; d) e, por &uacute;ltimo, compara os gastos entre os Minist&eacute;rios de Meio Ambiente e Esporte.
+&Eacute; poss&iacute;vel gerar os gr&aacute;ficos por &oacute;rg&atilde;o superior, isso totaliza 7 gr&aacute;ficos. Somado a isso, o c&oacute;digo permite plotar gr&aacute;ficos com mais de um &oacute;rg&atilde;o superior, o que &eacute; ideal quando se quer comparar gr&aacute;ficos. Abaixo s&atilde;o apresentados 4 gr&aacute;ficos, onde: a) compara os gastos entre todos os órgãos superiores já citados; b) mostra os gastos com a educação; c) mostra os gastos com a saúde; d) mostra os gastos com a previdência privada; e e) mostra os gastos com a presidência da república.
 
 a) ![Gráfico 01]({{site.baseurl}}/assets/img/post006/post06-graf01.png)
 
@@ -62,6 +65,8 @@ b) ![Gráfico 02]({{site.baseurl}}/assets/img/post006/post06-graf02.png)
 c) ![Gráfico 03]({{site.baseurl}}/assets/img/post006/post06-graf03.png)
 
 d) ![Gráfico 04]({{site.baseurl}}/assets/img/post006/post06-graf04.png)
+
+e) ![Gráfico 04]({{site.baseurl}}/assets/img/post006/post06-graf05.png)
 
 A inten&ccedil;&atilde;o deste pequeno projeto foi somente a de aprender e praticar raspagem de dados utilizando Python. Em rela&ccedil;&atilde;o as an&aacute;lises acerca do momento econ&ocirc;mico e pol&iacute;tico no qual o Pa&iacute;s vive(u) fica por conta do leitor. Vale ressaltar que esses valores s&atilde;o os divulgados pelo pr&oacute;prio Governo.
 
