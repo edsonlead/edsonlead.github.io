@@ -4,7 +4,7 @@ title: Hackeando Gastos Governamentais com Python 3
 date: '2017-10-13 23:42:33 -0300'
 img: category-python.png
 categories: [python]
-tags: [jupyter notebook, beautifulsoup, python]
+tags: [jupyter notebook, data scraping, beautifulsoup, python]
 
 ---
 
