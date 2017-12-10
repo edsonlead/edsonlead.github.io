@@ -31,7 +31,7 @@ Para a visualização desses dados é criado uma estrutura html, onde dentro de 
 
 ## Resultado
 
-É possível visualizar o arquivo list_anime.html em um navegador. Para melhor visualização do resultado, o bootstrap framework foi utilizado para estilizar o arquivo, que pode ser visto em: http://edsonlead.com/list_anime
+É possível visualizar o arquivo list_anime.html em um navegador. Para melhorar a visualização do resultado, o bootstrap framework foi utilizado para estilizar o arquivo, que pode ser visto em: http://edsonlead.com/list_anime
 
 ![Lista de animes 1]({{site.url}}/assets/img/post008/figure_1.png)
 
