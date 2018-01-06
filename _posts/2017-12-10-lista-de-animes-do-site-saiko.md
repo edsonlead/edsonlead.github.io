@@ -8,6 +8,8 @@ tags: [jupyter notebook, data scraping, beautifulsoup, python]
 
 ---
 
+\[UPDATE\]: 06/01/2018
+
 Para treinar raspagem de dados foi utilizado como objeto de estudos um site que conheci recentemente. Ele tem um layout bem legal, o webdesigner deixou as marcações html em uma forma aceitável para o nosso estudo, ótimo para download de animes e seus colaboradores dispobilizam o calendário de lançamento dos episódios. Porém, não possui a tradicional lista de animes sem os pôsters e é recheado de propaganda com redirecionamento de páginas (isso me deixa louco kkk), o que é bom para começarmos a brincar. =D
 
 ## Objetivos
@@ -24,13 +26,13 @@ O site de animes Saiko. URL: https://saikoanimes.com
 
 ## O Desafio
 
-Como o site Saiko possui apenas listas de animes com figuras e muito redirecionamento de páginas, *o que demanda um pouco a mais de tempo e dados de conexão para o processamento das páginas (fora um pouco de dor de cabeça)*, o desafio foi de recuperar dados desses animes e criar uma lista com apenas pôster de anime, o nome, link para acesso no site Saiko, nota e episódios dos animes.
+Como o site Saiko possui apenas listas de animes com figuras e muito redirecionamento de páginas, *o que demanda um pouco a mais de tempo e dados de conexão para o processamento das páginas (fora um pouco de dor de cabeça)*, o desafio foi de recuperar dados desses animes e criar uma lista com apenas pôster de anime, o nome, link para acesso no site Saiko, informações (ano, total de episódios, status e etc), nota, descrição e link para download dos episódios dos animes.
 
 Basicamente, o desafio foi o de facilitar o download dos episódios de animes desse site. Apenas os animes legendados foram escolhidos devido a sua maior quantidade.
 
 ## O Algoritmo
 
-O algoritmo inicia com a captura da url que possui 9 páginas, sendo que todas elas possuem um total de 42 animes (com exceção da última página que possui 41 animes). A url padrão das páginas dos animes legendados é: https://saikoanimes.com/legendados/?fwp_paged=. Para cada página, cada anime é capturado de acordo com a tag "\<div class="anime"\>". E para cada anime é capturado dados referentes ao pôster (\<img), ao nome (\<div class="listtittle"\>), link para acesso ao site (\<a href...\>), nota (\<div class="rwp-users-score-value"\>) e lista dos episódios para download (\<div class="list").
+O algoritmo inicia com a captura da url que possui 9 páginas, sendo que todas elas possuem um total de 42 animes (com exceção da última página que possui 41 animes). A url padrão das páginas dos animes legendados é: https://saikoanimes.com/legendados/?fwp_paged=. Para cada página, cada anime é capturado de acordo com a tag "\<div class="anime"\>". E para cada anime é capturado dados referentes ao pôster (\<img), ao nome (\<div class="listtittle"\>), link para acesso ao site (\<a href...\>), informações (\<div class="info-sa"\>), nota (\<div class="rwp-users-score-value"\>), descrição (\<div class="sinopse"\>) e lista dos episódios para download (\<div class="list").
 
 Para a visualização desses dados é criado uma estrutura html, onde dentro de uma tabela são adicionados dados dos animes referentes a uma página. Dessa forma, cada página possui a sua tabela que foi numerada devidamente. A estrutura em html é salva no arquivo list_anime.html.
 
@@ -38,9 +40,9 @@ Para a visualização desses dados é criado uma estrutura html, onde dentro de 
 
 É possível visualizar o arquivo list_anime.html em um navegador. O bootstrap framework foi utilizado para estilizar o arquivo, que pode ser visto em: http://edsonlead.com/list_anime
 
-![Lista de animes 1]({{site.url}}/assets/img/post008/figure_1.png)
-![Lista de animes 2]({{site.url}}/assets/img/post008/figure_2.png)
-![Lista de animes 3]({{site.url}}/assets/img/post008/figure_3.png)
+![Lista de animes 1]({{site.url}}/assets/img/post008/figure_1.jpg)
+![Lista de animes 2]({{site.url}}/assets/img/post008/figure_2.jpg)
+![Lista de animes 3]({{site.url}}/assets/img/post008/figure_3.jpg)
 
 Com essa listagem de animes é possível verificar que alguns animes não possui lista de episódios, são eles: Brotherhood: Final Fantasy XV, Cowboy Bebop: Tengoku no Tobira, Darker than Black: Kuro no Keiyakusha Gaiden, Date A Live Movie: Mayuri Judgment, Fukumenkei Noise, Hellsing Ultimate, Isekai no Seikishi Monogatari e Z/X: Ignition.
 
