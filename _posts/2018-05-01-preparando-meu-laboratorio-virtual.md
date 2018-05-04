@@ -91,4 +91,4 @@ Duas distribuições Linux foram escolhidas: <a href="https://torrent.fedoraproj
 
 A interface Xfce foi escolhida levando em consideração que se trata de um ambiente de desktop "leve". E com certeza irá evitar possíveis travamentos e lentidão na máquina principal comparado com a utilização do Gnome ou KDE. A escolha do CentOS Minimal é justamente para ampliar os estudos fazendo configurações do zero. A intenção é utilizar ao máximo o modo texto nessas duas distribuições Linux.
 
-Outras distros como Debian ou SUSE podem ser adicionadas, mas por enquanto, apenas as duas escolhidas. Montei esse laboratório pois pretendo voltar a estudar sobre administração de sistemas Linux e quem sabe prestar exames de certificação da RedHat :D
+Outras distros como Debian ou SUSE podem ser adicionadas, mas por enquanto, apenas as duas escolhidas :D
