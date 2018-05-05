@@ -7,7 +7,7 @@ categories: [python]
 tags: [jupyter notebook, data scraping, beautifulsoup, python]
 
 ---
-[UPDATE]:05/05/2018
+\[UPDATE\]:05/05/2018
 
 ## Objetivo
 
