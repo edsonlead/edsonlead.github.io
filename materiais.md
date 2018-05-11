@@ -3,11 +3,14 @@ title: #Materiais
 layout: post
 img:
 ---
-## Palestras
+## Materiais para download
+
+### Palestras
 
 * Palestra de Software Livre
 
-## Minicursos e Oficinas
+
+### Minicursos e Oficinas
 
 * Minicurso de WordPress
 
