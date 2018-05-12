@@ -1,6 +1,6 @@
 ---
 title: #Materiais
-layout: post
+layout: default
 img:
 ---
 ## Materiais para download
