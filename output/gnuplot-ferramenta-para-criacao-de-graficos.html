@@ -5,16 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Edson Araújo, Entusiasta Python">
 
-        <link rel="alternate"  href="http://edsonlead.com/feeds/all.atom.xml" type="application/atom+xml" title="Edson Araújo Full Atom Feed"/>
-        <link rel="alternate" href="http://edsonlead.com/feeds/all.rss.xml" type="application/rss+xml" title="Edson Araújo Full RSS Feed"/>
 
         <title>Gnuplot: ferramenta para criação de gráficos // Edson Araújo // Entusiasta Python</title>
 
 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.3.0/pure-min.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="http://edsonlead.com/theme/css/pure.css">
-    <link rel="stylesheet" href="http://edsonlead.com/theme/css/pygments.css">
+    <link rel="stylesheet" href="./theme/css/pure.css">
+    <link rel="stylesheet" href="./theme/css/pygments.css">
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/fitvids/1.0.1/jquery.fitvids.min.js"></script>
@@ -33,7 +31,7 @@
                     <header class="header">
                         <hgroup>
                             <img class="avatar" src="/images/logo.jpg">
-                            <h1 class="brand-main"><a href="http://edsonlead.com">Edson Araújo</a></h1>
+                            <h1 class="brand-main"><a href=".">Edson Araújo</a></h1>
                             <p class="tagline">Entusiasta Python</p>
                                 <p class="links"><a href="/pages/archives.html">Archives</a></p>
                                 <p class="links"><a href="/pages/downloads.html">Downloads</a></p>
@@ -67,7 +65,7 @@
                 <header class="post-header">
                     <h1>Gnuplot: ferramenta para criação de gráficos</h1>
                         <p class="post-meta">
-                            // under                                 <a class="post-category" href="http://edsonlead.com/tag/gnuplot.html">gnuplot</a>
+                            // under                                 <a class="post-category" href="./tag/gnuplot.html">gnuplot</a>
                         </p>
                 </header>
             </section>
@@ -88,7 +86,7 @@
 
 <h2>Executando o gnuplot</h2>
 <p>Ap&oacute;s a instala&ccedil;&atilde;o, no terminal, podemos executar o gnuplot da seguinte maneira: $ gnuplot. Na forma interativa podemos inserir alguns comandos e o gr&aacute;fico s&oacute; ser&aacute; plotado ao inserir o comando plot.</p>
-<p><img alt="Gnuplot" src="http://edsonlead.com/images/post02-gnuplot.png"></p>
+<p><img alt="Gnuplot" src="./images/post02-gnuplot.png"></p>
 <p>Uma outra forma de utiliz&aacute;-lo &eacute; atrav&eacute;s de scripts com extens&atilde;o .plt e que segue o seguinte formato de execu&ccedil;&atilde;o:</p>
 <div class="highlight"><pre><span></span>$ gnuplot arquivo.plt
 </pre></div>
@@ -108,7 +106,7 @@ gnuplot&gt; replot
 
 <p>Atrav&eacute;s da janela do gnuplot existe a possibilidade de salvar o gr&aacute;fico em formato PDF, SVG e imagem.</p>
 <p>O resultado:</p>
-<p><img alt="Gnuplot" src="http://edsonlead.com/images/post02-dados1.png"></p>
+<p><img alt="Gnuplot" src="./images/post02-dados1.png"></p>
 <p><em><strong>Utilizando dados de arquivo</strong></em></p>
 <p>Neste exemplo trabalhamos com dados de um arquivo externo, que foi denominado de dados.txt, e o seu conte&uacute;do &eacute; mostrado a seguir:</p>
 <div class="highlight"><pre><span></span><span class="m">10</span>.835    <span class="m">32</span>.394
@@ -174,7 +172,7 @@ plot <span class="s2">&quot;dados.txt&quot;</span> title <span class="s2">&quot;
 
 
 <p>O resultado:</p>
-<p><img alt="Gnuplot" src="http://edsonlead.com/images/post02-dados.png"></p>
+<p><img alt="Gnuplot" src="./images/post02-dados.png"></p>
 <p><em><strong>Utilizando dados de mais de um arquivo</strong></em></p>
 <p>Aqui o arquivo dados.txt foi dividido em outros dois, onde um possui somente a primeira coluna e outro somente a segunda coluna. O script anterior tamb&eacute;m foi alterado setando intervalos para os eixos cartesianos iniciando-os pelo valor zero. E a legenda do gr&aacute;fico recebeu estilo de box e espa&ccedil;amento. Observe que os arquivos foram inseridos dentro do mesmo plot.</p>
 <div class="highlight"><pre><span></span><span class="nb">set</span> terminal pngcairo enhanced font <span class="s1">&#39;Verdana-Bold,9&#39;</span>
@@ -192,7 +190,7 @@ plot <span class="s2">&quot;dados1.txt&quot;</span> title <span class="s2">&quot
 
 
 <p>O resultado:</p>
-<p><img alt="Gnuplot" src="http://edsonlead.com/images/post02-dados2.png"></p>
+<p><img alt="Gnuplot" src="./images/post02-dados2.png"></p>
 <h2>Mais informações</h2>
 <p>Para maiores informa&ccedil;&otilde;es acerca de software &eacute; sempre importante verificar a sua man page, no caso: $ man gnuplot</p>
 <p>E, logicamente, a documenta&ccedil;&atilde;o (<a href="http://gnuplot.info/docs_5.0/gnuplot.pdf" target="_blank">gnuplot.pdf</a>) presente no seu site oficial, onde al&eacute;m da documenta&ccedil;&atilde;o consta alguns exemplos (<a href="http://gnuplot.sourceforge.net/demo_5.0/" target="_blank">demo gnuplot</a>) para testes e aprendizagem.</p>

@@ -5,16 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Edson Araújo, Entusiasta Python">
 
-        <link rel="alternate"  href="http://edsonlead.com/feeds/all.atom.xml" type="application/atom+xml" title="Edson Araújo Full Atom Feed"/>
-        <link rel="alternate" href="http://edsonlead.com/feeds/all.rss.xml" type="application/rss+xml" title="Edson Araújo Full RSS Feed"/>
 
         <title>Hackeando Gastos Governamentais com Python 3 // Edson Araújo // Entusiasta Python</title>
 
 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.3.0/pure-min.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="http://edsonlead.com/theme/css/pure.css">
-    <link rel="stylesheet" href="http://edsonlead.com/theme/css/pygments.css">
+    <link rel="stylesheet" href="./theme/css/pure.css">
+    <link rel="stylesheet" href="./theme/css/pygments.css">
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/fitvids/1.0.1/jquery.fitvids.min.js"></script>
@@ -33,7 +31,7 @@
                     <header class="header">
                         <hgroup>
                             <img class="avatar" src="/images/logo.jpg">
-                            <h1 class="brand-main"><a href="http://edsonlead.com">Edson Araújo</a></h1>
+                            <h1 class="brand-main"><a href=".">Edson Araújo</a></h1>
                             <p class="tagline">Entusiasta Python</p>
                                 <p class="links"><a href="/pages/archives.html">Archives</a></p>
                                 <p class="links"><a href="/pages/downloads.html">Downloads</a></p>
@@ -67,8 +65,8 @@
                 <header class="post-header">
                     <h1>Hackeando Gastos Governamentais com Python 3</h1>
                         <p class="post-meta">
-                            // under                                 <a class="post-category" href="http://edsonlead.com/tag/python.html">python</a>
-                                <a class="post-category" href="http://edsonlead.com/tag/web-scraping.html">web scraping</a>
+                            // under                                 <a class="post-category" href="./tag/python.html">python</a>
+                                <a class="post-category" href="./tag/web-scraping.html">web scraping</a>
                         </p>
                 </header>
             </section>
@@ -92,8 +90,8 @@
 <h2>O Desafio</h2>
 <p>O desafio teve como objetivo auxiliar na aprendizagem da t&eacute;cnica de raspagem de dados. Ele foi: realizar raspagem de dados no Portal da Transpar&ecirc;ncia e apresentar graficamente os gastos diretos de alguns &oacute;rg&atilde;os superiores, desde o in&iacute;cio da inser&ccedil;&atilde;o dos dados no portal at&eacute; o ano atual. Os &oacute;rg&atilde;os escolhidos foram: Presid&ecirc;ncia da Rep&uacute;blica; Minist&eacute;rio da Ci&ecirc;ncia, Tecnologia, Inova&ccedil;&atilde;o e Comunica&ccedil;&otilde;es; Minist&eacute;rio da Educa&ccedil;&atilde;o; Minist&eacute;rio da Previd&ecirc;ncia Social; Minist&eacute;rio da Sa&uacute;de; Minist&eacute;rio do Meio Ambiente; e Minist&eacute;rio do Esporte. Nenhum motivo especial foi utilizado na escolha desses &oacute;rg&atilde;os.</p>
 <p>Para isso, o primeiro passo foi verificar os padr&otilde;es tanto das urls quanto do html das p&aacute;ginas, al&eacute;m de identificar os dados que devem ser extra&iacute;dos. O html da p&aacute;gina &eacute; igual para todos os anos e &oacute;rg&atilde;os superiores, e os dados se encontram exatamente dentro das mesmas posi&ccedil;&otilde;es e marca&ccedil;&otilde;es html. Depois de anotar esses padr&otilde;es, passamos para o algoritmo.</p>
-<p><img alt="Portal Transparencia" src="http://edsonlead.com/images/post06-portal.png"></p>
-<p><img alt="Portal Transparencia Fonte" src="http://edsonlead.com/images/post06-portal-fonte.png"></p>
+<p><img alt="Portal Transparencia" src="./images/post06-portal.png"></p>
+<p><img alt="Portal Transparencia Fonte" src="./images/post06-portal-fonte.png"></p>
 <h2>O Algoritmo</h2>
 <p>Basicamente, o algorimto inicia com a captura da url referente a cada &oacute;rg&atilde;o superior, captura os dois valores de "class=colunaValor" pertencente a marca&ccedil;&atilde;o "
 \<td>", sendo o de interesse o segundo que &eacute; refente ao valor destinado ao &oacute;rg&atilde;o. Ap&oacute;s isso, temos um tratamento para retirar o que n&atilde;o for de interesse, deixando apenas o valor do segundo&nbsp; "class=colunaValor". O valor de cada ano, ap&oacute;s passar por esse tratamento, &eacute; adicionado dentro de uma lista. Essa string deve ser convertida em float para colocar todos os valores em uma &uacute;nica unidade, pois, como os gr&aacute;ficos devem representar esses dados, nada melhor do que deix&aacute;-los da forma mais amig&aacute;vel poss&iacute;vel. A unidade escolhida foi bilh&atilde;o de reais com base em todos os dados.</p>
