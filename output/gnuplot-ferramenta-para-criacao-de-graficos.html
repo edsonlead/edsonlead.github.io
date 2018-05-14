@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Edson Araújo, Entusiasta Python">
+
+
+        <title>Gnuplot: ferramenta para criação de gráficos // Edson Araújo // Entusiasta Python</title>
+
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.3.0/pure-min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./theme/css/pure.css">
+    <link rel="stylesheet" href="./theme/css/pygments.css">
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fitvids/1.0.1/jquery.fitvids.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".content").fitVids();
+        });
+    </script>
+</head>
+
+<body>
+    <div class="pure-g-r" id="layout">
+        <div class="sidebar pure-u">
+            <div class="cover-img" style="background: none repeat scroll 0% 0% #3D4F5D">
+                <div class="cover-body">
+                    <header class="header">
+                        <hgroup>
+                            <img class="avatar" src="/images/logo.jpg">
+                            <h1 class="brand-main"><a href=".">Edson Araújo</a></h1>
+                            <p class="tagline">Entusiasta Python</p>
+                                <p class="links"><a href="/pages/archives.html">Archives</a></p>
+                                <p class="links"><a href="/pages/downloads.html">Downloads</a></p>
+                                <p class="links"><a href="/pages/projects.html">My projects</a></p>
+                                <p class="links"><a href="/pages/about.html">About me</a></p>
+                                <p class="social">
+                                    <a href="https://in.linkedin.com/in/edson-ara%C3%BAjo-81b10434">
+                                        <i class="fa fa-linkedin fa-3x"></i>
+                                    </a>
+                                    <a href="https://twitter.com/earaujopy">
+                                        <i class="fa fa-twitter fa-3x"></i>
+                                    </a>
+                                    <a href="http://github.com/edsonlead">
+                                        <i class="fa fa-github fa-3x"></i>
+                                    </a>
+                                    <a href="mailto:edsonlead@gmail.com">
+                                        <i class="fa fa-envelope fa-3x"></i>
+                                    </a>
+                                    <a href="feeds/all.atom.xml">
+                                        <i class="fa fa-rss fa-3x"></i>
+                                    </a>
+                                </p>
+                        </hgroup>
+                    </header>
+                </div>
+            </div>
+        </div>
+    <div class="pure-u">
+        <div class="content">
+            <section class="post">
+                <header class="post-header">
+                    <h1>Gnuplot: ferramenta para criação de gráficos</h1>
+                        <p class="post-meta">
+                            // under                                 <a class="post-category" href="./tag/gnuplot.html">gnuplot</a>
+                        </p>
+                </header>
+            </section>
+            <p>Embora receba em seu nome o termo GNU, essa ferramenta não possui uma licença ligada a GPL e muito menos possui relação com o projeto GNU. O <a href="http://gnuplot.info" target="_blank">Gnuplot</a> trata-se de uma freeware, ou seja, você não precisa pagar para utilizá-lo mas também não possui permissão para modificar o seu código fonte<sup>1</sup>.</p>
+<p>O gnuplot &eacute; uma ferramenta multiplataforma de linha de comando para cria&ccedil;&atilde;o de gr&aacute;ficos. Foi criado para auxiliar estudantes e cientistas a visualizar de forma interativa dados e fun&ccedil;&otilde;es matem&aacute;ticas. Outras aplica&ccedil;&otilde;es como o Octave<sup>2</sup>, por exemplo, utiliza o gnuplot como engine para plotar gr&aacute;ficos.</p>
+<p>Ele d&aacute; suporte a plotagem de gr&aacute;ficos 2D, 3D e gif, e scripts podem ser utilizados. Scripts? Sim, scripts. O legal de trabalhar com essa ferramenta por linha de comando &eacute; a possibilidade de plotar gr&aacute;ficos tanto de forma interativa quanto por meio de scripts. E &eacute; isso o que veremos neste post.</p>
+<h2>Instalação do gnuplot</h2>
+<p>O download do gnuplot pode ser realizado em seu reposit&oacute;rio no sourceforget (<a href="https://sourceforge.net/projects/gnuplot/files/" target="_blank">repositório gnuplot</a>). Em sistemas Linux &eacute; comum que o gnuplot esteja em seus reposit&oacute;rios. Ent&atilde;o, para instal&aacute;-lo basta seguir um dos seguintes comandos:</p>
+<p>Para dpkg (exemplo: Debian):</p>
+<div class="highlight"><pre><span></span>$ sudo apt-get install gnuplot
+</pre></div>
+
+
+<p>Para rpm (exemplo: Fedora):</p>
+<div class="highlight"><pre><span></span>$ sudo dnf install gnuplot
+</pre></div>
+
+
+<h2>Executando o gnuplot</h2>
+<p>Ap&oacute;s a instala&ccedil;&atilde;o, no terminal, podemos executar o gnuplot da seguinte maneira: $ gnuplot. Na forma interativa podemos inserir alguns comandos e o gr&aacute;fico s&oacute; ser&aacute; plotado ao inserir o comando plot.</p>
+<p><img alt="Gnuplot" src="./images/post02-gnuplot.png"></p>
+<p>Uma outra forma de utiliz&aacute;-lo &eacute; atrav&eacute;s de scripts com extens&atilde;o .plt e que segue o seguinte formato de execu&ccedil;&atilde;o:</p>
+<div class="highlight"><pre><span></span>$ gnuplot arquivo.plt
+</pre></div>
+
+
+<h2>Exemplos Práticos</h2>
+<p>Aqui &eacute; apresentado tr&ecirc;s exemplos de utiliza&ccedil;&atilde;o do gnuplot. N&atilde;o &eacute; a inten&ccedil;&atilde;o decifrar linha por linha dos escripts, mas sim, dar no&ccedil;&atilde;o de funcionamento da ferramenta e plotagem dos gr&aacute;ficos. O primeiro exemplo ir&aacute; abordar o uso do gnuplot via linha de comando e os dois &uacute;ltimos via scripts.</p>
+<p><em><strong>Gr&aacute;fico da fun&ccedil;&atilde;o seno</strong></em></p>
+<p>Esse primeiro exemplo &eacute; algo bem b&aacute;sico, apenas para familiariza&ccedil;&atilde;o, que podemos trabalhar direto no terminal. Acessando o gnuplot realizamos a plotagem da fun&ccedil;&atilde;o seno que abrir&aacute; uma janela apresentando o gr&aacute;fico dessa fun&ccedil;&atilde;o. Logo ap&oacute;s, temos a inser&ccedil;&atilde;o de dois comandos respons&aacute;veis por setar os intervalos em valores para os eixos x e y. Para que essas altera&ccedil;&otilde;es possam ser visualizadas faz-se necess&aacute;rio um replot.</p>
+<div class="highlight"><pre><span></span>$ gnuplot
+gnuplot&gt; plot sin<span class="o">(</span>x<span class="o">)</span>
+gnuplot&gt; <span class="nb">set</span> xrange <span class="o">[</span><span class="m">0</span>:10<span class="o">]</span>
+gnuplot&gt; <span class="nb">set</span> yrange <span class="o">[</span>-2:2<span class="o">]</span>
+gnuplot&gt; replot
+</pre></div>
+
+
+<p>Atrav&eacute;s da janela do gnuplot existe a possibilidade de salvar o gr&aacute;fico em formato PDF, SVG e imagem.</p>
+<p>O resultado:</p>
+<p><img alt="Gnuplot" src="./images/post02-dados1.png"></p>
+<p><em><strong>Utilizando dados de arquivo</strong></em></p>
+<p>Neste exemplo trabalhamos com dados de um arquivo externo, que foi denominado de dados.txt, e o seu conte&uacute;do &eacute; mostrado a seguir:</p>
+<div class="highlight"><pre><span></span><span class="m">10</span>.835    <span class="m">32</span>.394
+<span class="m">18</span>.714    <span class="m">31</span>.073
+<span class="m">26</span>.593    <span class="m">29</span>.393
+<span class="m">34</span>.472    <span class="m">27</span>.467
+<span class="m">42</span>.352    <span class="m">25</span>.353
+<span class="m">50</span>.231    <span class="m">23</span>.227
+<span class="m">58</span>.110    <span class="m">21</span>.067
+<span class="m">65</span>.989    <span class="m">19</span>.013
+<span class="m">73</span>.868    <span class="m">17</span>.078
+<span class="m">81</span>.748    <span class="m">15</span>.070
+<span class="m">89</span>.627    <span class="m">13</span>.188
+<span class="m">97</span>.506    <span class="m">11</span>.401
+<span class="m">105</span>.385     <span class="m">9</span>.723
+<span class="m">113</span>.264     <span class="m">8</span>.132
+<span class="m">121</span>.144     <span class="m">6</span>.581
+<span class="m">129</span>.023     <span class="m">5</span>.268
+<span class="m">136</span>.902     <span class="m">3</span>.964
+<span class="m">144</span>.781     <span class="m">2</span>.781
+<span class="m">152</span>.660     <span class="m">1</span>.627
+<span class="m">160</span>.540     <span class="m">0</span>.621
+<span class="m">168</span>.419    -0.317
+<span class="m">176</span>.298    -1.153
+<span class="m">184</span>.177    -1.925
+<span class="m">192</span>.056    -2.820
+<span class="m">199</span>.936    -3.599
+<span class="m">207</span>.815    -4.235
+<span class="m">215</span>.694    -4.780
+<span class="m">223</span>.573    -5.211
+<span class="m">231</span>.452    -5.484
+<span class="m">239</span>.332    -5.752
+<span class="m">247</span>.211    -6.004
+<span class="m">255</span>.090    -6.185
+<span class="m">262</span>.969    -6.490
+<span class="m">270</span>.848    -6.566
+<span class="m">278</span>.728    -6.783
+<span class="m">286</span>.607    -6.702
+<span class="m">294</span>.486    -6.634
+<span class="m">302</span>.365    -6.554
+<span class="m">310</span>.244    -6.436
+<span class="m">318</span>.124    -6.213
+<span class="m">326</span>.003    -6.103
+<span class="m">333</span>.882    -5.890
+<span class="m">341</span>.761    -5.789
+<span class="m">349</span>.640    -5.545
+<span class="m">357</span>.520    -5.442
+<span class="m">365</span>.399    -5.113
+</pre></div>
+
+
+<p>As colunas representam os eixos cartesianos x e y, respectivamente. O script para a constru&ccedil;&atilde;o do gr&aacute;fico foi denominado de dados.plt, onde a fonte escolhida para o gr&aacute;fico foi Verdana em negrito de tamanho 9. Diferente do exemplo anterior, este salva o gr&aacute;fico em imagem com o nome de dados.png e possui um enconding que pode ser necess&aacute;rio para mostrar palavras acentuadas e o "&ccedil;". Nele tamb&eacute;m foi configurado para que os valores do eixo x sejam mostrados de 100 em 100 e os do eixo y de 10 em 10. Por fim, &eacute; inserido o arquivo que possui os dados a serem apresentados graficamente, assim como o nome da linha e a sua cor.</p>
+<div class="highlight"><pre><span></span><span class="nb">set</span> terminal pngcairo enhanced font <span class="s1">&#39;Verdana-Bold,9&#39;</span>
+<span class="nb">set</span> output <span class="s1">&#39;dados.png&#39;</span>
+<span class="nb">set</span> encoding iso_8859_1
+<span class="nb">set</span> title <span class="s2">&quot;Gráfico utilizando dados de arquivo&quot;</span>
+<span class="nb">set</span> xlabel <span class="s2">&quot;Eixo X&quot;</span>
+<span class="nb">set</span> ylabel <span class="s2">&quot;Eixo y&quot;</span>
+<span class="nb">set</span> xtics <span class="m">100</span>
+<span class="nb">set</span> ytics <span class="m">10</span>
+plot <span class="s2">&quot;dados.txt&quot;</span> title <span class="s2">&quot;Linha verde&quot;</span> lc rgb <span class="s2">&quot;green&quot;</span> with lines
+</pre></div>
+
+
+<p>O resultado:</p>
+<p><img alt="Gnuplot" src="./images/post02-dados.png"></p>
+<p><em><strong>Utilizando dados de mais de um arquivo</strong></em></p>
+<p>Aqui o arquivo dados.txt foi dividido em outros dois, onde um possui somente a primeira coluna e outro somente a segunda coluna. O script anterior tamb&eacute;m foi alterado setando intervalos para os eixos cartesianos iniciando-os pelo valor zero. E a legenda do gr&aacute;fico recebeu estilo de box e espa&ccedil;amento. Observe que os arquivos foram inseridos dentro do mesmo plot.</p>
+<div class="highlight"><pre><span></span><span class="nb">set</span> terminal pngcairo enhanced font <span class="s1">&#39;Verdana-Bold,9&#39;</span>
+<span class="nb">set</span> output <span class="s1">&#39;dados2.png&#39;</span>
+<span class="nb">set</span> encoding iso_8859_1
+<span class="nb">set</span> title <span class="s2">&quot;Gráfico utilizando dados de arquivo&quot;</span>
+<span class="nb">set</span> xlabel <span class="s2">&quot;Eixo X&quot;</span>
+<span class="nb">set</span> ylabel <span class="s2">&quot;Eixo y&quot;</span>
+<span class="nb">set</span> xrange <span class="o">[</span><span class="m">0</span>:20<span class="o">]</span>
+<span class="nb">set</span> yrange <span class="o">[</span><span class="m">0</span>:50<span class="o">]</span>
+<span class="nb">set</span> key top font <span class="s2">&quot;2&quot;</span> box <span class="m">3</span> spacing <span class="m">3</span>
+plot <span class="s2">&quot;dados1.txt&quot;</span> title <span class="s2">&quot;Linha vermelha&quot;</span> lc rgb <span class="s2">&quot;red&quot;</span> with lines,<span class="se">\</span>
+<span class="s2">&quot;dados2.txt&quot;</span> title <span class="s2">&quot;Linha azul&quot;</span> lc rgb <span class="s2">&quot;blue&quot;</span> with lines
+</pre></div>
+
+
+<p>O resultado:</p>
+<p><img alt="Gnuplot" src="./images/post02-dados2.png"></p>
+<h2>Mais informações</h2>
+<p>Para maiores informa&ccedil;&otilde;es acerca de software &eacute; sempre importante verificar a sua man page, no caso: $ man gnuplot</p>
+<p>E, logicamente, a documenta&ccedil;&atilde;o (<a href="http://gnuplot.info/docs_5.0/gnuplot.pdf" target="_blank">gnuplot.pdf</a>) presente no seu site oficial, onde al&eacute;m da documenta&ccedil;&atilde;o consta alguns exemplos (<a href="http://gnuplot.sourceforge.net/demo_5.0/" target="_blank">demo gnuplot</a>) para testes e aprendizagem.</p>
+<p>Para quem prefere livros, duas recomenda&ccedil;&otilde;es s&atilde;o feitas pelo site oficial do gnuplot. S&atilde;o eles: <a href="https://www.packtpub.com/big-data-and-business-intelligence/gnuplot-cookbook" target="_blank"> Phillips, L. gnuplot Cookbook. Packt Publishing, 2012</a> <a href="https://www.manning.com/books/gnuplot-in-action-second-edition" target="_blank"> Janert, P. K. Gnuplot in Action - Understanding Data with Graphs. Manning Publications, 2&ordf; Ed., 2016</a><sup>3</sup>.</p>
+<h2>Finalizando...</h2>
+<p>Aqui tratamos de forma breve sobre uma ferramenta desenvolvida para o meio acad&ecirc;mico, mas que sem d&uacute;vidas pode ser utilizada em outros contextos. Como apresentado, a sua instala&ccedil;&atilde;o &eacute; simples e a sua aprendizagem pode demadar algum tempo dependendo dos estilos que voc&ecirc; deseja aplicar em seus gr&aacute;ficos.</p>
+<p>E a&iacute;? Voc&ecirc; j&aacute; conhecia o Gnuplot? J&aacute; o utilizou? Conhece alguma outra ferramenta alternativa? Pois conte para gente&nbsp;a sua experi&ecirc;ncia e&#47;ou opini&atilde;o nos coment&aacute;rios. O seu feedback &eacute; sempre bem-vindo.</p>
+<h2>Referências</h2>
+<p>1 <a href="http://www.gnuplot.info/faq/faq.html#x1-120001.7" target="_blank">http://www.gnuplot.info/faq/faq.html#x1-120001.7</a>
+2 <a href="https://www.gnu.org/software/octave/" target="_blank">https://www.gnu.org/software/octave/</a>
+3 <a href="http://gnuplot.info/books.html" target="_blank">http://gnuplot.info/books.html</a></p>
+            <a href="#" class="go-top">Go Top</a>
+    <div class="comments">
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = "earaujo"; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+<footer class="footer">
+    <p>&copy; Edson Araújo &ndash;
+        Built with <a href="https://github.com/PurePelicanTheme/pure-single">Pure Theme</a>
+        for <a href="http://blog.getpelican.com/">Pelican</a>
+    </p>
+</footer>        </div>
+    </div>
+    </div>
+    <script>
+        var $top = $('.go-top');
+
+        // Show or hide the sticky footer button
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 200) {
+                $top.fadeIn(200);
+            } else {
+                $top.fadeOut(200);
+            }
+        });
+
+        // Animate the scroll to top
+        $top.click(function(event) {
+            event.preventDefault();
+            $('html, body').animate({scrollTop: 0}, 300);
+        })
+
+        // Makes sure that the href="#" attached to the <a> elements
+        // don't scroll you back up the page.
+        $('body').on('click', 'a[href="#"]', function(event) {
+            event.preventDefault();
+        });
+    </script>
+    <script type="text/javascript">
+        var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+        document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+        try {
+            var pageTracker = _gat._getTracker("UA-64489934-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+    </script>
+
+</body>
+</html>
