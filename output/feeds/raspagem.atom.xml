@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Edson Araújo - Raspagem</title><link href="http://edsonlead.com/" rel="alternate"></link><link href="http://edsonlead.com/feeds/raspagem.atom.xml" rel="self"></link><id>http://edsonlead.com/</id><updated>2018-05-05T00:00:00-03:00</updated><entry><title>Lista de Animes do Site Saiko</title><link href="http://edsonlead.com/lista-de-animes-site-saiko.html" rel="alternate"></link><published>2017-12-10T00:00:00-03:00</published><updated>2018-01-06T00:00:00-03:00</updated><author><name>Edson Araújo</name></author><id>tag:edsonlead.com,2017-12-10:/lista-de-animes-site-saiko.html</id><summary type="html">&lt;p&gt;Utilizando a técnica de raspagem de dados foi possível coletar links de download de um site de animes. Os links foram reagrupados e disponibilizados em um arquivo html de forma com que o usuário possa efetuar os downloads sem passar pelo excesso de propagandas do site&lt;/p&gt;</summary><content type="html">&lt;p&gt;Para treinar raspagem de dados foi utilizado como objeto de estudos um site que conheci recentemente. Ele tem um layout bem legal, o webdesigner deixou as marcações html em uma forma aceitável para o nosso estudo, ótimo para download de animes e seus colaboradores dispobilizam o calendário de lançamento dos episódios. Porém, não possui a tradicional lista de animes sem os pôsters e é recheado de propaganda com redirecionamento de páginas (isso me deixa louco kkk), o que é bom para começarmos a brincar. =D&lt;/p&gt;
+&lt;h3&gt;Objetivos&lt;/h3&gt;
+&lt;p&gt;Esse foi um projeto bem simples que possuiu três objetivos:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Auxiliar na aprendizagem da técnica de raspagem de dados utilizando Python;&lt;/li&gt;
+&lt;li&gt;Criar um formato de lista que o site Saiko não possui;&lt;/li&gt;
+&lt;li&gt;Facilitar o download dos episódios.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;O Alvo&lt;/h3&gt;
+&lt;p&gt;O site de animes Saiko. URL: https://saikoanimes.com&lt;/p&gt;
+&lt;h3&gt;O Desafio&lt;/h3&gt;
+&lt;p&gt;Como o site Saiko possui apenas listas de animes com figuras e muito redirecionamento de páginas, &lt;em&gt;o que demanda um pouco a mais de tempo e dados de conexão para o processamento das páginas (fora um pouco de dor de cabeça)&lt;/em&gt;, o desafio foi de recuperar dados desses animes e criar uma lista com apenas pôster de anime, o nome, link para acesso no site Saiko, informações (ano, total de episódios, status e etc), nota, descrição e link para download dos episódios dos animes.&lt;/p&gt;
+&lt;p&gt;Basicamente, o desafio foi o de facilitar o download dos episódios de animes desse site. Apenas os animes legendados foram escolhidos devido a sua maior quantidade.&lt;/p&gt;
+&lt;h3&gt;O Algoritmo&lt;/h3&gt;
+&lt;p&gt;O algoritmo inicia com a captura da url que possui 9 páginas, sendo que todas elas possuem um total de 42 animes (com exceção da última página que possui 41 animes). A url padrão das páginas dos animes legendados é: https://saikoanimes.com/legendados/?fwp_paged=. Para cada página, cada anime é capturado de acordo com a tag "\&amp;lt;div class="anime"&gt;". E para cada anime é capturado dados referentes ao pôster (\&amp;lt;img), ao nome (\&amp;lt;div class="listtittle"&gt;), link para acesso ao site (\&amp;lt;a href...&gt;), informações (\&amp;lt;div class="info-sa"&gt;), nota (\&amp;lt;div class="rwp-users-score-value"&gt;), descrição (\&amp;lt;div class="sinopse"&gt;) e lista dos episódios para download (\&amp;lt;div class="list").&lt;/p&gt;
+&lt;p&gt;Para a visualização desses dados é criado uma estrutura html, onde dentro de uma tabela são adicionados dados dos animes referentes a uma página. Dessa forma, cada página possui a sua tabela que foi numerada devidamente. A estrutura em html é salva no arquivo list_anime.html.&lt;/p&gt;
+&lt;h3&gt;Resultado&lt;/h3&gt;
+&lt;p&gt;É possível visualizar o arquivo list_anime.html em um navegador. O bootstrap framework foi utilizado para estilizar o arquivo, que pode ser visto em: http://edsonlead.com/list_anime&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Lista de animes 1" src="https://raw.githubusercontent.com/edsonlead/data_scraping/master/004/images/figure_1.png"&gt;
+&lt;img alt="Lista de animes 2" src="https://raw.githubusercontent.com/edsonlead/data_scraping/master/004/images/figure_2.png"&gt;
+&lt;img alt="Lista de animes 3" src="https://raw.githubusercontent.com/edsonlead/data_scraping/master/004/images/figure_3.png"&gt;&lt;/p&gt;
+&lt;p&gt;Com essa listagem de animes é possível verificar que alguns animes não possui lista de episódios, são eles: Brotherhood: Final Fantasy XV, Cowboy Bebop: Tengoku no Tobira, Darker than Black: Kuro no Keiyakusha Gaiden, Date A Live Movie: Mayuri Judgment, Fukumenkei Noise, Hellsing Ultimate, Isekai no Seikishi Monogatari e Z/X: Ignition.&lt;/p&gt;
+&lt;p&gt;De um total de 377 animes postados no site, cerca de 8 desses animes não possui lista de episódios disponíveis para download.&lt;/p&gt;
+&lt;h3&gt;Considerações&lt;/h3&gt;
+&lt;p&gt;Embora seja uma brincadeira, a ideia partiu de dois pequenos comentários que me fizeram sobre o site Saiko &lt;em&gt;"Eu não gosto de lista assim porque demora muito pra carregar a página"&lt;/em&gt; e ainda &lt;em&gt;"O meu adblock bloqueou o site"&lt;/em&gt;. E de fato, o site é muito bom, mas têm esses detalhes que ajudaram nos estudos com raspagem de dados.&lt;/p&gt;
+&lt;p&gt;No momento, não se tem melhorias em mente para aplicar ao código-fonte a não ser a refatoração do mesmo. Caso, tenha alguma sugestão fique a vontade para comentar este post. Uma descrição e código-fonte pode ser encontrado em: https://github.com/edsonlead/data_scraping/tree/master/004.&lt;/p&gt;</content><category term="python"></category><category term="web scraping"></category></entry><entry><title>Gastos do Cartão Corporativo do Estado do Ceará</title><link href="http://edsonlead.com/gastos-do-cartao-corporativo-do-estado-ceara.html" rel="alternate"></link><published>2017-12-09T00:00:00-03:00</published><updated>2018-05-05T00:00:00-03:00</updated><author><name>Edson Araújo</name></author><id>tag:edsonlead.com,2017-12-09:/gastos-do-cartao-corporativo-do-estado-ceara.html</id><summary type="html">&lt;p&gt;Neste post é apresentado o resultado da técnica de raspagem de dados utilizando com alvo os dados públicos do Estado do Ceará acerca dos gastos com o cartão corporativo&lt;/p&gt;</summary><content type="html">&lt;h3&gt;Objetivo&lt;/h3&gt;
+&lt;p&gt;Auxiliar na aprendizagem da técnica de raspagem de dados utilizando Python.&lt;/p&gt;
+&lt;h3&gt;O Alvo&lt;/h3&gt;
+&lt;p&gt;Portal da Transparência do Governo do Estado do Ceará. URL: http://transparencia.ce.gov.br/content/planejamento-e-execucao-orcamentaria/despesas/cartao-corporativo&lt;/p&gt;
+&lt;h3&gt;O Desafio&lt;/h3&gt;
+&lt;p&gt;Recuperar dados do Portal da Transparência do Governo do Estado do Ceará sobre gastos do cartão corporativo de responsabilidade do Chefe do Poder Executivo, no período de 2015 a 2018. Calcular a média de gastos e desvio padrão anual e plotar os gastos do cartão corporativo.&lt;/p&gt;
+&lt;h3&gt;O Algoritmo&lt;/h3&gt;
+&lt;p&gt;O algoritmo inicia com a captura da url que possui as quatro tabelas anuais dos gastos com o cartão corporativo. Onde, primeiramente, são capturados os cabeçalhos de cada tabela. Logo em seguida, os valores de cada mês são tratados.&lt;/p&gt;
+&lt;p&gt;Cálculos de média e desvio padrão são realizados utilizando a biblioteca numpy e os gráficos são gerados com o pyplot.&lt;/p&gt;
+&lt;h3&gt;Resultado&lt;/h3&gt;
+&lt;p&gt;É possível gerar as médias e os desvios padrão para os gastos anuais com o cartão corporativo para cada ano (2015, 2016, 2017 e 2018).&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Gastos com Cartão Corporativo &lt;span class="m"&gt;2018&lt;/span&gt;
+Média de gastos -&amp;gt;   R$   &lt;span class="m"&gt;2513&lt;/span&gt;.30
+Desvio padrão   -&amp;gt; ± R$   &lt;span class="m"&gt;1723&lt;/span&gt;.37
+
+Gastos com Cartão Corporativo &lt;span class="m"&gt;2017&lt;/span&gt;
+Média de gastos -&amp;gt;   R$   &lt;span class="m"&gt;2524&lt;/span&gt;.33
+Desvio padrão   -&amp;gt; ± R$   &lt;span class="m"&gt;1865&lt;/span&gt;.36
+
+Gastos com Cartão Corporativo &lt;span class="m"&gt;2016&lt;/span&gt;
+Média de gastos -&amp;gt;   R$   &lt;span class="m"&gt;1016&lt;/span&gt;.25
+Desvio padrão   -&amp;gt; ± R$   &lt;span class="m"&gt;979&lt;/span&gt;.13
+
+Gastos com Cartão Corporativo &lt;span class="m"&gt;2015&lt;/span&gt;
+Média de gastos -&amp;gt;   R$   &lt;span class="m"&gt;786&lt;/span&gt;.42
+Desvio padrão   -&amp;gt; ± R$   &lt;span class="m"&gt;598&lt;/span&gt;.68
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;É possível, também, gerar os gráficos para cada ano em Valor(R$) x Mês e um único gráfico mostrando os gastos dos 4 anos. Abaixo são apresentados 5 gráficos, onde: a) corresponde aos 4 anos; b) corresponde ao ano de 2018; c) corresponde ao ano de 2017; d) corresponde ao ano de 2016; e) corresponde ao ano de 2015.&lt;/p&gt;
+&lt;p&gt;a)
+&lt;img alt="Gastos 2015-2018" src="https://raw.githubusercontent.com/edsonlead/data_scraping/master/003/images/mulplot.png"&gt;&lt;/p&gt;
+&lt;p&gt;b)
+&lt;img alt="Gastos 2018" src="https://raw.githubusercontent.com/edsonlead/data_scraping/master/003/images/sinplot-2018.png"&gt;&lt;/p&gt;
+&lt;p&gt;c)
+&lt;img alt="Gastos 2017" src="https://raw.githubusercontent.com/edsonlead/data_scraping/master/003/images/sinplot-2017.png"&gt;&lt;/p&gt;
+&lt;p&gt;d)
+&lt;img alt="Gastos 2016" src="https://raw.githubusercontent.com/edsonlead/data_scraping/master/003/images/sinplot-2016.png"&gt;&lt;/p&gt;
+&lt;p&gt;e)
+&lt;img alt="Gastos 2015" src="https://raw.githubusercontent.com/edsonlead/data_scraping/master/003/images/sinplot-2015.png"&gt;&lt;/p&gt;
+&lt;h3&gt;Considerações&lt;/h3&gt;
+&lt;p&gt;A intenção deste pequeno projeto foi somente a de praticar raspagem de dados utilizando Python. Com isso em mente, melhorias serão aplicadas à ele no decorrer do tempo. Essas melhorias estão descritas em: https://github.com/edsonlead/data_scraping/tree/master/003.&lt;/p&gt;
+&lt;p&gt;Seria interessante se fosse disponibilizado com o que foi utilizado o cartão corporativo do Estado. Porém, &lt;em&gt;"Nessa página são disponibilizados os gastos com cartão corporativo que está sob responsabilidade do Chefe do Poder Executivo, cujas informações são disponibilizadas com valores sintéticos a fim de não comprometer a segurança almejada, conforme art. 22º, VII, da Lei 15.175/2012"&lt;/em&gt;. Dessa forma, não há como apresentar aqui os motivos do aumento do gasto em comparação com os anos tratados.&lt;/p&gt;</content><category term="python"></category><category term="web scraping"></category></entry><entry><title>Hackeando Gastos Governamentais com Python 3</title><link href="http://edsonlead.com/hackeando-gastos-governamentais-com-python.html" rel="alternate"></link><published>2017-10-13T23:42:00-03:00</published><updated>2017-11-09T00:00:00-03:00</updated><author><name>Edson Araújo</name></author><id>tag:edsonlead.com,2017-10-13:/hackeando-gastos-governamentais-com-python.html</id><summary type="html">&lt;p&gt;Neste post apresento a minha primeira tarefa realizada utilizando a técnica de raspagem de dados. Nela, dados públicos relacionados ao gastos governamentais foram tratados com Python&lt;/p&gt;</summary><content type="html">&lt;p&gt;Ontem, 12 de outubro, aproveitei para publicar um pequeno projeto que desenvolvi em alguns dias. Postei nos grupos do Facebook Python Brasil e A.P.D.A., al&amp;eacute;m da minha timeline. Obtive um feedback bem legal e maior do que eu esperava. E neste post iremos tratar sobre esse projeto.&lt;/p&gt;
+&lt;p&gt;&amp;Eacute; de conhecimento comum que d&amp;aacute; pra fazer v&amp;aacute;rias coisas com uma linguagem de programa&amp;ccedil;&amp;atilde;o. Aprender tudo sobre uma &amp;eacute; praticamente imposs&amp;iacute;vel, para meros mortais. Por isso, &amp;eacute; importante encontrar um foco. Em tese, deve ser algo desafiador e que desperte o interesse de quem est&amp;aacute; escrevendo os c&amp;oacute;digos. Eu fui atr&amp;aacute;s do meu foco, se encontrei eu n&amp;atilde;o sei. Mas estou gostando de raspagem de dados.&lt;/p&gt;
+&lt;p&gt;J&amp;aacute; acompanho h&amp;aacute; um tempo o trabalho do Professor Fernando Ashikaga. Ele ministra cursos e palestras sobre raspagem de dados. Acompanhei pelo YouTube uma dessas palestras realizada pela Roadsec SP.&lt;/p&gt;
+&lt;iframe width="100%"  src="https://www.youtube.com/embed/pM68J2JA72U" frameborder="0" &gt;&lt;/iframe&gt;
+
+&lt;p&gt;A partir dessa palestra eu fiquei ainda mais interessado em raspagem de dados e pensei em me desafiar. E como atualmente se fala bastante em gastos e or&amp;ccedil;amento do governo, resolvi utilizar o &lt;a href="http://portaltransparencia.gov.br/" target="_blank"&gt;Portal da Transpar&amp;ecirc;ncia do Governo Federal&lt;/a&gt; como objeto de estudo.&lt;/p&gt;
+&lt;h2&gt;As Ferramentas&lt;/h2&gt;
+&lt;p&gt;Comecei meus estudos pela documenta&amp;ccedil;&amp;atilde;o do Beautiful Soup&lt;sup&gt;[1]&lt;/sup&gt;. Tinha que ser com Python. E nisso fui passando algumas noites aprendendo coisas novas, inclusive o Jupyter Notebook&lt;sup&gt;[2]&lt;/sup&gt;. Eu utilizava mais o vim e o iPython. O Pyplot&lt;sup&gt;[3]&lt;/sup&gt; foi utilizado para a plotagem dos gr&amp;aacute;ficos.&lt;/p&gt;
+&lt;p&gt;Uma defini&amp;ccedil;&amp;atilde;o r&amp;aacute;pida sobre o Beautiful Soup:&lt;/p&gt;
+&lt;blockquote&gt;"Beautiful Soup &amp;eacute; uma biblioteca Python para extrair dados de arquivos HTML e XML. Ele funciona com o seu analisador favorito para fornecer maneiras idiom&amp;aacute;ticas de navegar, pesquisar e modificar a &amp;aacute;rvore de an&amp;aacute;lise. Geralmente economiza horas ou dias de trabalho do programador."&lt;sup&gt;[1]&lt;/sup&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;Agora, uma defini&amp;ccedil;&amp;atilde;o r&amp;aacute;pida sobre o Jupyter Notebook:&lt;/p&gt;
+&lt;blockquote&gt;"O notebook amplia a abordagem baseada em console para a computa&amp;ccedil;&amp;atilde;o interativa em uma dire&amp;ccedil;&amp;atilde;o qualitativamente nova, fornecendo uma aplica&amp;ccedil;&amp;atilde;o baseada na web adequada para capturar todo o processo de computa&amp;ccedil;&amp;atilde;o: desenvolvimento, documenta&amp;ccedil;&amp;atilde;o e execu&amp;ccedil;&amp;atilde;o de c&amp;oacute;digo, al&amp;eacute;m de comunicar os resultados."&lt;sup&gt;[2]&lt;/sup&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;E sobre o Pyplot:&lt;/p&gt;
+&lt;blockquote&gt;"Matplotlib.pyplot &amp;eacute; uma cole&amp;ccedil;&amp;atilde;o de fun&amp;ccedil;&amp;otilde;es de estilo de comando que fazem Matplotlib funcionar como MATLAB. Cada fun&amp;ccedil;&amp;atilde;o pyplot faz alguma altera&amp;ccedil;&amp;atilde;o em uma figura: por exemplo, cria uma figura, cria uma &amp;aacute;rea de tra&amp;ccedil;ado em uma figura, tra&amp;ccedil;a algumas linhas em uma &amp;aacute;rea de tra&amp;ccedil;ado, decora o gr&amp;aacute;fico com r&amp;oacute;tulos, etc."&lt;sup&gt;[3]&lt;/sup&gt;&lt;/blockquote&gt;
+
+&lt;h2&gt;O Desafio&lt;/h2&gt;
+&lt;p&gt;O desafio teve como objetivo auxiliar na aprendizagem da t&amp;eacute;cnica de raspagem de dados. Ele foi: realizar raspagem de dados no Portal da Transpar&amp;ecirc;ncia e apresentar graficamente os gastos diretos de alguns &amp;oacute;rg&amp;atilde;os superiores, desde o in&amp;iacute;cio da inser&amp;ccedil;&amp;atilde;o dos dados no portal at&amp;eacute; o ano atual. Os &amp;oacute;rg&amp;atilde;os escolhidos foram: Presid&amp;ecirc;ncia da Rep&amp;uacute;blica; Minist&amp;eacute;rio da Ci&amp;ecirc;ncia, Tecnologia, Inova&amp;ccedil;&amp;atilde;o e Comunica&amp;ccedil;&amp;otilde;es; Minist&amp;eacute;rio da Educa&amp;ccedil;&amp;atilde;o; Minist&amp;eacute;rio da Previd&amp;ecirc;ncia Social; Minist&amp;eacute;rio da Sa&amp;uacute;de; Minist&amp;eacute;rio do Meio Ambiente; e Minist&amp;eacute;rio do Esporte. Nenhum motivo especial foi utilizado na escolha desses &amp;oacute;rg&amp;atilde;os.&lt;/p&gt;
+&lt;p&gt;Para isso, o primeiro passo foi verificar os padr&amp;otilde;es tanto das urls quanto do html das p&amp;aacute;ginas, al&amp;eacute;m de identificar os dados que devem ser extra&amp;iacute;dos. O html da p&amp;aacute;gina &amp;eacute; igual para todos os anos e &amp;oacute;rg&amp;atilde;os superiores, e os dados se encontram exatamente dentro das mesmas posi&amp;ccedil;&amp;otilde;es e marca&amp;ccedil;&amp;otilde;es html. Depois de anotar esses padr&amp;otilde;es, passamos para o algoritmo.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Portal Transparencia" src="http://edsonlead.com/images/post06-portal.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Portal Transparencia Fonte" src="http://edsonlead.com/images/post06-portal-fonte.png"&gt;&lt;/p&gt;
+&lt;h2&gt;O Algoritmo&lt;/h2&gt;
+&lt;p&gt;Basicamente, o algorimto inicia com a captura da url referente a cada &amp;oacute;rg&amp;atilde;o superior, captura os dois valores de "class=colunaValor" pertencente a marca&amp;ccedil;&amp;atilde;o "
+\&lt;td&gt;", sendo o de interesse o segundo que &amp;eacute; refente ao valor destinado ao &amp;oacute;rg&amp;atilde;o. Ap&amp;oacute;s isso, temos um tratamento para retirar o que n&amp;atilde;o for de interesse, deixando apenas o valor do segundo&amp;nbsp; "class=colunaValor". O valor de cada ano, ap&amp;oacute;s passar por esse tratamento, &amp;eacute; adicionado dentro de uma lista. Essa string deve ser convertida em float para colocar todos os valores em uma &amp;uacute;nica unidade, pois, como os gr&amp;aacute;ficos devem representar esses dados, nada melhor do que deix&amp;aacute;-los da forma mais amig&amp;aacute;vel poss&amp;iacute;vel. A unidade escolhida foi bilh&amp;atilde;o de reais com base em todos os dados.&lt;/p&gt;
+&lt;p&gt;Dessa forma, temos para cada &amp;oacute;rg&amp;atilde;o superior uma lista de valores em bilh&amp;otilde;es de reais desde o ano de 2004 at&amp;eacute; o ano de 2017. Com isso, junto com uma lista contendo os anos (2004, 2005..., 2017), os gr&amp;aacute;ficos foram plotados da forma Em bilh&amp;otilde;es de R$ (eixo y) X Ano (eixo x) para cada um deles. O c&amp;oacute;digo tamb&amp;eacute;m possui uma fun&amp;ccedil;&amp;atilde;o para plotar todos os &amp;oacute;rg&amp;atilde;os em um &amp;uacute;nico gr&amp;aacute;fico ou escolher quais queremos comparar.&lt;/p&gt;
+&lt;h2&gt;Resultados&lt;/h2&gt;
+&lt;p&gt;&amp;Eacute; poss&amp;iacute;vel gerar os gr&amp;aacute;ficos por &amp;oacute;rg&amp;atilde;o superior, isso totaliza 7 gr&amp;aacute;ficos. Somado a isso, o c&amp;oacute;digo permite plotar gr&amp;aacute;ficos com mais de um &amp;oacute;rg&amp;atilde;o superior, o que &amp;eacute; ideal quando se quer comparar gr&amp;aacute;ficos. Abaixo s&amp;atilde;o apresentados 4 gr&amp;aacute;ficos, onde: a) compara os gastos entre todos os órgãos superiores já citados; b) mostra os gastos com a educação; c) mostra os gastos com a saúde; d) mostra os gastos com a previdência social; e e) mostra os gastos com a presidência da república.&lt;/p&gt;
+&lt;p&gt;a)
+&lt;img alt="Gráfico 01" src="https://raw.githubusercontent.com/edsonlead/data_scraping/master/001/images/mulplot.png"&gt;&lt;/p&gt;
+&lt;p&gt;b)
+&lt;img alt="Gráfico 02" src="https://raw.githubusercontent.com/edsonlead/data_scraping/master/001/images/Educa%C3%A7%C3%A3o.png"&gt;&lt;/p&gt;
+&lt;p&gt;c)
+&lt;img alt="Gráfico 03" src="https://raw.githubusercontent.com/edsonlead/data_scraping/master/001/images/Sa%C3%BAde.png"&gt;&lt;/p&gt;
+&lt;p&gt;d)
+&lt;img alt="Gráfico 04" src="https://raw.githubusercontent.com/edsonlead/data_scraping/master/001/images/Previd%C3%AAncia%20Social.png"&gt;&lt;/p&gt;
+&lt;p&gt;e)
+&lt;img alt="Gráfico 05" src="https://raw.githubusercontent.com/edsonlead/data_scraping/master/001/images/Presid%C3%AAncia%20da%20Rep%C3%BAblica.png"&gt;&lt;/p&gt;
+&lt;p&gt;A inten&amp;ccedil;&amp;atilde;o deste pequeno projeto foi somente a de aprender e praticar raspagem de dados utilizando Python. Em rela&amp;ccedil;&amp;atilde;o as an&amp;aacute;lises acerca do momento econ&amp;ocirc;mico e pol&amp;iacute;tico no qual o Pa&amp;iacute;s vive(u) fica por conta do leitor. Vale ressaltar que esses valores s&amp;atilde;o os divulgados pelo pr&amp;oacute;prio Governo.&lt;/p&gt;
+&lt;p&gt;O c&amp;oacute;digo completo pode ser encontrado no meu GitHub: &lt;a href="https://github.com/edsonlead/data_scraping/blob/master/001/" target="_blank" rel="noopener"&gt;https://github.com/edsonlead/data_scraping/blob/master/001/&lt;/a&gt;. Ainda irei aplicar algumas melhorias e quem sabe outras fun&amp;ccedil;&amp;otilde;es. Caso tenha alguma sugest&amp;atilde;o ou coment&amp;aacute;rio, fa&amp;ccedil;a bom uso das issues: &lt;a href="https://github.com/edsonlead/data_scraping/issues" target="_blank" rel="noopener"&gt;https://github.com/edsonlead/data_scraping/issues&lt;/a&gt; ou no espa&amp;ccedil;o para coment&amp;aacute;rios aqui neste post.&lt;/p&gt;
+&lt;blockquote&gt;Agrade&amp;ccedil;o ao Juliano Garcia, Anderson Rezende e Roberto Sousa pela ajuda na representa&amp;ccedil;&amp;atilde;o gr&amp;aacute;fica dos dados, ao Prof Fernando Ashikaga pela inspira&amp;ccedil;&amp;atilde;o e divulga&amp;ccedil;&amp;atilde;o dos seus conhecimentos. E a todos que deram um feedback nas publica&amp;ccedil;&amp;otilde;es que postei. Voc&amp;ecirc;s me motivaram ainda mais.&lt;/blockquote&gt;
+
+&lt;p&gt;Obrigado por ler at&amp;eacute; aqui. :)&lt;/p&gt;
+&lt;h2&gt;Refer&amp;ecirc;ncias&lt;/h2&gt;
+&lt;p&gt;1 &lt;a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/" target="_blank" rel="noopener"&gt;https://www.crummy.com/software/BeautifulSoup/bs4/doc/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;2 &lt;a href="http://jupyter-notebook.readthedocs.io/en/latest/notebook.html" target="_blank" rel="noopener"&gt;http://jupyter-notebook.readthedocs.io/en/latest/notebook.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;3 &lt;a href="https://matplotlib.org/users/pyplot_tutorial.html" target="_blank" rel="noopener"&gt;https://matplotlib.org/users/pyplot_tutorial.html&lt;/a&gt;&lt;/p&gt;</content><category term="python"></category><category term="web scraping"></category></entry></feed>
