@@ -5,7 +5,7 @@ from __future__ import unicode_literals
 
 AUTHOR = 'Edson Araújo'
 SITENAME = 'Edson Araújo'
-SITEURL = 'http://edsonlead.github.io'
+SITEURL = 'https://edsonlead.github.io'
 
 #THEME PURE-SINGLE
 THEME = 'theme'
