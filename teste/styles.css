@@ -24,3 +24,7 @@ footer i {
 .pedido {
 	padding-bottom: 30%;
 }
+
+.slide-img {
+	filter: brightness(50%);
+}
