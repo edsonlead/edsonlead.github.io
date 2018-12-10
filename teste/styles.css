@@ -4,13 +4,13 @@ html,body {
 }
 
 p {
-	font-size: 38px;
+	font-size: 30px;
 }
 
 .btn-pink {
 	background-color: #ff0066 !important;
 	border: #ff0066 !important;
-	font-size: 26px;
+	font-size: 32px !important;
 }
 
 .girassol {
