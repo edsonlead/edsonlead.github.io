@@ -1,0 +1,26 @@
+html,body {
+	background-color: #800000;
+	color: #fff;
+}
+
+.btn-pink {
+	background-color: #ff0066 !important;
+	border: #ff0066 !important;
+}
+
+.girassol {
+	width: 70px;
+	height: 70px;
+}
+
+footer {
+	color: #fff !important;
+}
+
+footer i {
+	color: #f00;
+}
+
+.pedido {
+	padding-bottom: 30%;
+}
