@@ -3,6 +3,10 @@ html,body {
 	color: #fff;
 }
 
+p {
+	font-size: 28px;
+}
+
 .btn-pink {
 	background-color: #ff0066 !important;
 	border: #ff0066 !important;
@@ -16,6 +20,10 @@ html,body {
 
 footer {
 	color: #fff !important;
+}
+
+footer p {
+	font-size: 16px !important;
 }
 
 footer i {
