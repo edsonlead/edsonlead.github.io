@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Edson Araújo, Entusiasta Python">
+
+
+        <title>Hackeando Gastos Governamentais com Python 3 // Edson Araújo // Entusiasta Python</title>
+
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.3.0/pure-min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./theme/css/pure.css">
+    <link rel="stylesheet" href="./theme/css/pygments.css">
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fitvids/1.0.1/jquery.fitvids.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".content").fitVids();
+        });
+    </script>
+</head>
+
+<body>
+    <div class="pure-g-r" id="layout">
+        <div class="sidebar pure-u">
+            <div class="cover-img" style="background: none repeat scroll 0% 0% #3D4F5D">
+                <div class="cover-body">
+                    <header class="header">
+                        <hgroup>
+                            <img class="avatar" src="/images/logo.jpg">
+                            <h1 class="brand-main"><a href=".">Edson Araújo</a></h1>
+                            <p class="tagline">Entusiasta Python</p>
+                                <p class="links"><a href="/pages/archives.html">Archives</a></p>
+                                <p class="links"><a href="/pages/downloads.html">Downloads</a></p>
+                                <p class="links"><a href="/pages/projects.html">My projects</a></p>
+                                <p class="links"><a href="/pages/about.html">About me</a></p>
+                                <p class="social">
+                                    <a href="https://in.linkedin.com/in/edson-ara%C3%BAjo-81b10434">
+                                        <i class="fa fa-linkedin fa-3x"></i>
+                                    </a>
+                                    <a href="https://twitter.com/earaujopy">
+                                        <i class="fa fa-twitter fa-3x"></i>
+                                    </a>
+                                    <a href="http://github.com/edsonlead">
+                                        <i class="fa fa-github fa-3x"></i>
+                                    </a>
+                                    <a href="mailto:edsonlead@gmail.com">
+                                        <i class="fa fa-envelope fa-3x"></i>
+                                    </a>
+                                    <a href="feeds/all.atom.xml">
+                                        <i class="fa fa-rss fa-3x"></i>
+                                    </a>
+                                </p>
+                        </hgroup>
+                    </header>
+                </div>
+            </div>
+        </div>
+    <div class="pure-u">
+        <div class="content">
+            <section class="post">
+                <header class="post-header">
+                    <h1>Hackeando Gastos Governamentais com Python 3</h1>
+                        <p class="post-meta">
+                            // tag                                 <a class="post-category" href="./tag/python.html">python</a>
+                                <a class="post-category" href="./tag/web-scraping.html">web scraping</a>
+                        </p>
+                </header>
+            </section>
+            <h2>Uma breve introdução</h2>
+<p>Ontem, 12 de outubro (2017), aproveitei para publicar um pequeno projeto que desenvolvi em alguns dias. Postei nos grupos do Facebook Python Brasil e A.P.D.A., al&eacute;m da minha timeline. Obtive um feedback bem legal e maior do que eu esperava. E é ele que será tratado aqui.</p>
+<p>&Eacute; de conhecimento comum que d&aacute; pra fazer v&aacute;rias coisas com uma linguagem de programa&ccedil;&atilde;o. Aprender tudo sobre uma &eacute; praticamente imposs&iacute;vel, para meros mortais. Por isso, &eacute; importante encontrar um foco. Em tese, deve ser algo desafiador e que desperte o interesse de quem est&aacute; escrevendo os c&oacute;digos. Eu fui atr&aacute;s do meu foco, se encontrei eu n&atilde;o sei. Mas estou gostando de raspagem de dados.</p>
+<h2>A inspiração</h2>
+<p>J&aacute; acompanho h&aacute; um tempo o trabalho do Professor Fernando Ashikaga. Ele ministra cursos e palestras sobre raspagem de dados. Acompanhei pelo YouTube uma dessas palestras realizada pela Roadsec SP.</p>
+<iframe width="100%"  height="50%" src="https://www.youtube.com/embed/pM68J2JA72U" frameborder="0" ></iframe>
+
+<p>A partir dessa palestra eu fiquei ainda mais interessado em raspagem de dados e pensei em me desafiar.</p>
+<h2>A fonte dos dados</h2>
+<p>E como atualmente se fala bastante em gastos e or&ccedil;amento do governo, resolvi utilizar o <a href="http://portaltransparencia.gov.br/" target="_blank">Portal da Transpar&ecirc;ncia do Governo Federal</a> como objeto de estudo.</p>
+<h2>As ferramentas</h2>
+<p>Comecei meus estudos pela documenta&ccedil;&atilde;o do Beautiful Soup<sup>[1]</sup>. Tinha que ser com Python. E nisso fui passando algumas noites aprendendo coisas novas, inclusive o Jupyter Notebook<sup>[2]</sup> que não conhecia. Eu utilizava mais o vim e o iPython.</p>
+<p>O Pyplot<sup>[3]</sup> foi utilizado para a plotagem dos gr&aacute;ficos. Logo depois o Seaborn foi aplicado no projeto.</p>
+<p>Uma defini&ccedil;&atilde;o r&aacute;pida sobre o Beautiful Soup:</p>
+<blockquote>"Beautiful Soup &eacute; uma biblioteca Python para extrair dados de arquivos HTML e XML. Ele funciona com o seu analisador favorito para fornecer maneiras idiom&aacute;ticas de navegar, pesquisar e modificar a &aacute;rvore de an&aacute;lise. Geralmente economiza horas ou dias de trabalho do programador."<sup>[1]</sup></blockquote>
+
+<p>Agora, uma defini&ccedil;&atilde;o r&aacute;pida sobre o Jupyter Notebook:</p>
+<blockquote>"O notebook amplia a abordagem baseada em console para a computa&ccedil;&atilde;o interativa em uma dire&ccedil;&atilde;o qualitativamente nova, fornecendo uma aplica&ccedil;&atilde;o baseada na web adequada para capturar todo o processo de computa&ccedil;&atilde;o: desenvolvimento, documenta&ccedil;&atilde;o e execu&ccedil;&atilde;o de c&oacute;digo, al&eacute;m de comunicar os resultados."<sup>[2]</sup></blockquote>
+
+<p>E sobre o Pyplot:</p>
+<blockquote>"Matplotlib.pyplot &eacute; uma cole&ccedil;&atilde;o de fun&ccedil;&otilde;es de estilo de comando que fazem Matplotlib funcionar como MATLAB. Cada fun&ccedil;&atilde;o pyplot faz alguma altera&ccedil;&atilde;o em uma figura: por exemplo, cria uma figura, cria uma &aacute;rea de tra&ccedil;ado em uma figura, tra&ccedil;a algumas linhas em uma &aacute;rea de tra&ccedil;ado, decora o gr&aacute;fico com r&oacute;tulos, etc."<sup>[3]</sup></blockquote>
+
+<h2>O desafio</h2>
+<p>O desafio teve como objetivo auxiliar na aprendizagem da t&eacute;cnica de raspagem de dados. Ele foi: realizar raspagem de dados no Portal da Transpar&ecirc;ncia e apresentar graficamente os gastos diretos de alguns &oacute;rg&atilde;os superiores, desde o in&iacute;cio da inser&ccedil;&atilde;o dos dados no portal at&eacute; o ano atual.</p>
+<p>Os &oacute;rg&atilde;os escolhidos foram: Presid&ecirc;ncia da Rep&uacute;blica; Minist&eacute;rio da Ci&ecirc;ncia, Tecnologia, Inova&ccedil;&atilde;o e Comunica&ccedil;&otilde;es; Minist&eacute;rio da Educa&ccedil;&atilde;o; Minist&eacute;rio da Previd&ecirc;ncia Social; Minist&eacute;rio da Sa&uacute;de; Minist&eacute;rio do Meio Ambiente; e Minist&eacute;rio do Esporte. Nenhum motivo especial foi utilizado na escolha desses &oacute;rg&atilde;os.</p>
+<p>Dessa forma, dentre vários questionamentos, as seguintes perguntas a serem respondidas são:</p>
+<ul>
+<li>
+<p>Qual órgão recebe o maior investimento do Governo?</p>
+</li>
+<li>
+<p>Qual órgão recebe o menor investimento do Governo?</p>
+</li>
+<li>
+<p>Qual governo gastou mais com a Presidência da República?</p>
+</li>
+</ul>
+<h2>Acessando os dados</h2>
+<p>O primeiro passo foi verificar os padr&otilde;es tanto das urls quanto do html das p&aacute;ginas, al&eacute;m de identificar os dados que devem ser extra&iacute;dos. O html da p&aacute;gina &eacute; igual para todos os anos e &oacute;rg&atilde;os superiores, e os dados se encontram exatamente dentro das mesmas posi&ccedil;&otilde;es e marca&ccedil;&otilde;es html. Depois de anotar esses padr&otilde;es, passamos para a captura e limpeza dos dados.</p>
+<p><img alt="Portal Transparencia" src="./images/post06-portal.png"></p>
+<h2>Capturando e limpando os dados</h2>
+<p>Basicamente, a captura da url referente a cada &oacute;rg&atilde;o superior foi feita, bem como a captura dos dois valores de "class=colunaValor" pertencente a marca&ccedil;&atilde;o "&lt; td&gt;", sendo o de interesse o segundo que &eacute; refente ao valor destinado ao &oacute;rg&atilde;o. Ap&oacute;s isso, temos um tratamento para retirar o que n&atilde;o for de interesse, deixando apenas o valor do segundo&nbsp; "class=colunaValor".</p>
+<p><img alt="Portal Transparencia Fonte" src="./images/post06-portal-fonte.png"></p>
+<p>O valor de cada ano, ap&oacute;s passar por esse tratamento, &eacute; adicionado dentro de uma lista. Essa string deve ser convertida em float para colocar todos os valores em uma &uacute;nica unidade, pois, como os gr&aacute;ficos devem representar esses dados, nada melhor do que deix&aacute;-los da forma mais amig&aacute;vel poss&iacute;vel. A unidade escolhida foi bilh&atilde;o de reais com base em todos os dados.</p>
+<p>Dessa forma, foram capturados e limpos os dados para cada &oacute;rg&atilde;o superior. Em seguinda, eles foram adicionados a uma lista de valores em bilh&otilde;es de reais desde o ano de 2004 at&eacute; o ano de 2018. Com isso, junto com uma lista contendo os anos (2004, 2005..., 2018), os gr&aacute;ficos foram plotados da forma Em bilh&otilde;es de R$ (eixo y) X Ano (eixo x) para cada um deles.</p>
+<p>Foi adicionado a possibilidade de plotar todos os &oacute;rg&atilde;os em um &uacute;nico gr&aacute;fico ou escolher quais queremos comparar.</p>
+<h2>Principal desafio encontrado</h2>
+<ul>
+<li>A não existência de dados anteriores a 2004. O que permitiria a comparação entre os governos anteriores a esse período</li>
+</ul>
+<h2>Resultados</h2>
+<h3>Qual órgão recebe o maior gasto do Governo?</h3>
+<p>Até o ano de 2015, o gasto destinado a Previdência Social era o maior. Já a partir de 2016, a Educação adquiriu essa posição e a manteve no corte dos gastos em 2017. </p>
+<p><img alt="Gráfico 01" src="https://raw.githubusercontent.com/edsonlead/data_scraping/master/001/images/mulplot.png"></p>
+<h3>Qual órgão recebe o menor gasto do Governo?</h3>
+<p>O órgão Esporte, desde 2004, é o que menos recebe investimentos do Governo. Em 2007 (Jogos Pan-Americanos de 2007) teve o seu maior investimento que foi seguido de uma grande queda em 2008. A queda devido ao corte nos gastos em 2017 foi menor do que o corte de 2008. Porém, em 2018 alcançou a sua maior queda.</p>
+<p><img alt="Gráfico 02" src="https://raw.githubusercontent.com/edsonlead/data_scraping/master/001/images/Esporte.png"></p>
+<h3>Qual Governo gastou mais com a Presidência da República?</h3>
+<p>Desde 2004 esse órgão possuiu pequenas reduções de gastos nos anos de 2010 e 2012. Porém, em 2018 teve um corte mais significativo.</p>
+<p><img alt="Gráfico 03" src="https://raw.githubusercontent.com/edsonlead/data_scraping/master/001/images/Presid%C3%AAncia%20da%20Rep%C3%BAblica.png"></p>
+<h3>Sobre os gráficos</h3>
+<p>&Eacute; poss&iacute;vel gerar os gr&aacute;ficos por &oacute;rg&atilde;o superior, isso totaliza 7 gr&aacute;ficos. Somado a isso, o c&oacute;digo permite plotar gr&aacute;ficos com mais de um &oacute;rg&atilde;o superior, o que &eacute; ideal quando se quer comparar gr&aacute;ficos. Os gráficos podem ser acessados aqui: <a href="https://github.com/edsonlead/data_scraping/tree/master/001/images" target="_blank">GitHub</a>.</p>
+<h2>Considerações</h2>
+<p>A inten&ccedil;&atilde;o deste pequeno projeto foi somente a de aprender e praticar raspagem de dados utilizando Python. Em rela&ccedil;&atilde;o as an&aacute;lises acerca do momento econ&ocirc;mico e pol&iacute;tico no qual o Pa&iacute;s vive(u) fica por conta do leitor. Vale ressaltar que esses valores s&atilde;o os divulgados pelo pr&oacute;prio Governo.</p>
+<p>O c&oacute;digo completo pode ser encontrado no meu GitHub: <a href="https://github.com/edsonlead/data_scraping/blob/master/001/" target="_blank" rel="noopener">https://github.com/edsonlead/data_scraping/blob/master/001/</a>. Ainda irei aplicar algumas melhorias e quem sabe outras fun&ccedil;&otilde;es. </p>
+<blockquote>Agrade&ccedil;o ao Juliano Garcia, Anderson Rezende e Roberto Sousa pela ajuda na representa&ccedil;&atilde;o gr&aacute;fica dos dados, ao Prof Fernando Ashikaga pela inspira&ccedil;&atilde;o e divulga&ccedil;&atilde;o dos seus conhecimentos. E a todos que deram um feedback nas publica&ccedil;&otilde;es que postei. Voc&ecirc;s me motivaram ainda mais.</blockquote>
+
+<p>Gostou desse estudo? Caso tenha alguma sugest&atilde;o ou coment&aacute;rio, fa&ccedil;a bom uso das issues: <a href="https://github.com/edsonlead/data_scraping/issues" target="_blank" rel="noopener">https://github.com/edsonlead/data_scraping/issues</a>. Ou do espa&ccedil;o para coment&aacute;rios aqui neste post. Aproveite e me siga no <a href="https://twitter.com/earaujopy">Twitter</a> para trocarmos uma ideia legal.</p>
+<p>Obrigado por ler at&eacute; aqui. :)</p>
+<h2>Refer&ecirc;ncias</h2>
+<p>1 <a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/" target="_blank" rel="noopener">https://www.crummy.com/software/BeautifulSoup/bs4/doc/</a></p>
+<p>2 <a href="http://jupyter-notebook.readthedocs.io/en/latest/notebook.html" target="_blank" rel="noopener">http://jupyter-notebook.readthedocs.io/en/latest/notebook.html</a></p>
+<p>3 <a href="https://matplotlib.org/users/pyplot_tutorial.html" target="_blank" rel="noopener">https://matplotlib.org/users/pyplot_tutorial.html</a></p>
+            <a href="#" class="go-top">Go Top</a>
+    <div class="comments">
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = "earaujo"; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+<footer class="footer">
+    <p>&copy; Edson Araújo &ndash;
+        Built with <a href="https://github.com/PurePelicanTheme/pure-single">Pure Theme</a>
+        for <a href="http://blog.getpelican.com/">Pelican</a>
+    </p>
+</footer>        </div>
+    </div>
+    </div>
+    <script>
+        var $top = $('.go-top');
+
+        // Show or hide the sticky footer button
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 200) {
+                $top.fadeIn(200);
+            } else {
+                $top.fadeOut(200);
+            }
+        });
+
+        // Animate the scroll to top
+        $top.click(function(event) {
+            event.preventDefault();
+            $('html, body').animate({scrollTop: 0}, 300);
+        })
+
+        // Makes sure that the href="#" attached to the <a> elements
+        // don't scroll you back up the page.
+        $('body').on('click', 'a[href="#"]', function(event) {
+            event.preventDefault();
+        });
+    </script>
+    <script type="text/javascript">
+        var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+        document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+        try {
+            var pageTracker = _gat._getTracker("UA-64489934-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+    </script>
+
+</body>
+</html>
