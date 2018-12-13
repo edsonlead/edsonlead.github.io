@@ -10,7 +10,7 @@ p {
 .btn-pink {
 	background-color: #ff0066 !important;
 	border: #ff0066 !important;
-	font-size: 32px !important;
+	/**font-size: 16px !important;**/
 }
 
 .girassol {
